@@ -1,0 +1,15 @@
+# 3ds Max Wavefront OBJ Exporter v0.94b - (c)2007 guruware
+# File Created: 03.06.2008 00:05:55
+
+newmtl Chapel01_M
+	Ns 500.0000
+	Ka 0.8 0.8 0.8
+	Kd 0.1647 0.1647 0.1647
+	Ks 0.0898 0.0898 0.0898
+	map_Kd chapel01.png
+
+newmtl Ground_M
+	Ns 1000.0000
+	Ka 0.8 0.8 0.8
+	Kd 0.7176 0.7176 0.7176
+	Ks 0.898 0.898 0.0898
