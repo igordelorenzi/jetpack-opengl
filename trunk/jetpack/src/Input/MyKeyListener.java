@@ -4,7 +4,7 @@
  */
 package Input;
 
-import Load.ModelViewer;
+import Main.Engine;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -25,13 +25,13 @@ public class MyKeyListener implements KeyListener
     {
         if (ke.getKeyCode() == KeyEvent.VK_W) 
         {
-            ModelViewer.cz += Math.sin(ModelViewer.angle*Math.PI/180.0) * WALK_STEP;
-            ModelViewer.cx += Math.cos(ModelViewer.angle*Math.PI/180.0) * WALK_STEP;
+            Engine.cz += Math.sin(Engine.angle*Math.PI/180.0) * WALK_STEP;
+            Engine.cx += Math.cos(Engine.angle*Math.PI/180.0) * WALK_STEP;
         }
         else if (ke.getKeyCode() == KeyEvent.VK_S) 
         {
-            ModelViewer.cz -= Math.sin(ModelViewer.angle*Math.PI/180.0) * WALK_STEP;
-            ModelViewer.cx -= Math.cos(ModelViewer.angle*Math.PI/180.0) * WALK_STEP;
+            Engine.cz -= Math.sin(Engine.angle*Math.PI/180.0) * WALK_STEP;
+            Engine.cx -= Math.cos(Engine.angle*Math.PI/180.0) * WALK_STEP;
         }
     }
 
