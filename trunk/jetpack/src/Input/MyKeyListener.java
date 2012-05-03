@@ -14,7 +14,7 @@ import java.awt.event.KeyListener;
  */
 public class MyKeyListener implements KeyListener
 {
-    private static float WALK_STEP = 1;
+    private static float WALK_STEP = 0.025f;
     
     public void keyTyped(KeyEvent ke) 
     {
