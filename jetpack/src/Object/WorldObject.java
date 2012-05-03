@@ -22,6 +22,7 @@ public abstract class WorldObject
             
     public void draw(GLAutoDrawable glad)
     {
+        
         model.draw(glad);
     }
     

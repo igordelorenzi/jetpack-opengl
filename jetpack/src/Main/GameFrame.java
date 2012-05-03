@@ -8,7 +8,8 @@ import javax.swing.JFrame;
 import Input.MyKeyListener;
 import Input.MyMouseMotionListener;
 import Load.JWavefrontModel;
-import Object.Chapel;
+import Object.Moon;
+import Object.Rocket;
 import com.sun.opengl.util.Animator;
 import com.sun.opengl.util.FPSAnimator;
 import java.awt.GraphicsDevice;
@@ -82,6 +83,7 @@ public class GameFrame extends JFrame
     private void loadObjects() throws IOException
     {
         //model.dump(true);
-        viewer.addObject(new Chapel());
+        viewer.addObject(new Rocket());
+        viewer.addObject(new Moon());
     }
 }

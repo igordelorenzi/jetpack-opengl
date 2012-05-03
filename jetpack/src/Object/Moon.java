@@ -12,12 +12,13 @@ import java.io.IOException;
  *
  * @author bruno
  */
-public class Chapel extends WorldObject
+public class Moon extends WorldObject
 {
-    public Chapel() throws IOException
+    public Moon() throws IOException
     {
-        String filename = "./data/chapel/chapel.obj";
+        String filename = "./data/moon/moon.obj";
         model = new JWavefrontModel(new File(filename));
+        model.scale(1000);
         model.unitize();
         model.facetNormals();
         model.vertexNormals(90);
