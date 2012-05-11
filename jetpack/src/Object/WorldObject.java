@@ -5,6 +5,8 @@
 package Object;
 
 import Load.JWavefrontModel;
+import Main.Engine;
+import javax.media.opengl.GL;
 import javax.media.opengl.GLAutoDrawable;
 
 /**
@@ -14,17 +16,17 @@ import javax.media.opengl.GLAutoDrawable;
 public abstract class WorldObject
 {
     protected JWavefrontModel model;
+    protected Point3f position;
+    protected float scale;
     
     public JWavefrontModel getModel()
     {
         return model;
     }
             
-    public void draw(GLAutoDrawable glad)
-    {
-        
-        model.draw(glad);
-    }
+    public abstract void draw(GLAutoDrawable glad);
+    
+    
     
     public void update()
     {

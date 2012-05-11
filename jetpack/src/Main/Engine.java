@@ -4,10 +4,11 @@ package Main;
 
 import Load.JWavefrontModel;
 import Object.WorldObject;
-import com.sun.opengl.util.GLUT;
 import java.util.Iterator;
 import java.util.LinkedList;
-import javax.media.opengl.*;
+import javax.media.opengl.GL;
+import javax.media.opengl.GLAutoDrawable;
+import javax.media.opengl.GLEventListener;
 import javax.media.opengl.glu.GLU;
 
 
@@ -16,6 +17,8 @@ public class Engine implements GLEventListener
     private LinkedList<WorldObject> objectsList = new LinkedList<WorldObject>();
     public static int W = 800, H = 600;
     public static float lx = 0, ly = 0, lz = 1, cx = 0, cy = 0, cz = 0, angle = 90, yangle = 0;
+    public static GL gl;
+    public static GLU glu;
     
     public Engine() 
     {
@@ -30,8 +33,8 @@ public class Engine implements GLEventListener
     @Override
     public void init(GLAutoDrawable glad) {
         //OpenGl Parameters
-        GL gl = glad.getGL();
-        GLU glu = new GLU();
+        gl = glad.getGL();
+        glu = new GLU();
         gl.glEnable(GL.GL_LIGHTING);
         gl.glEnable(GL.GL_LIGHT0);
         gl.glEnable(GL.GL_DEPTH_TEST);
@@ -63,8 +66,8 @@ public class Engine implements GLEventListener
     {
         updateGame();
         
-        GL gl = glad.getGL();
-        GLU glu = new GLU();
+        gl = glad.getGL();
+        glu = new GLU();
         
         gl.glClearColor(1.0f, 1.0f, 1.0f, 0.0f); //backgroung color
         gl.glClear(GL.GL_COLOR_BUFFER_BIT | GL.GL_DEPTH_BUFFER_BIT);
@@ -78,6 +81,7 @@ public class Engine implements GLEventListener
 			0.0f, 1.0f,  0.0f);
         
         Iterator<WorldObject> it = objectsList.iterator();
+        
         while (it.hasNext())
         {
             it.next().draw(glad);
@@ -95,7 +99,7 @@ public class Engine implements GLEventListener
     }
 
     private void lighting(GLAutoDrawable glad) {
-        GL gl = glad.getGL();
+        gl = glad.getGL();
 
         float[] luzAmbiente = {0.3f, 0.3f, 0.3f, 1.0f};
         float[] luzDifusa = new float[]{0.75f, 0.75f, 0.75f, 1.0f};

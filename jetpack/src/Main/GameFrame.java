@@ -83,7 +83,8 @@ public class GameFrame extends JFrame
     private void loadObjects() throws IOException
     {
         //model.dump(true);
-        viewer.addObject(new Rocket());
         viewer.addObject(new Moon());
+        viewer.addObject(new Rocket());
+        
     }
 }
