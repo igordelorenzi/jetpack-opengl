@@ -1,7 +1,7 @@
 # Blender v2.62 (sub 0) OBJ File: ''
 # www.blender.org
 mtllib moon.mtl
-o Mountain01
+o moon
 v -699.208984 199.246460 -15678.652344
 v -699.208984 164.151001 -15831.953125
 v -545.908203 33.484131 -15525.351562

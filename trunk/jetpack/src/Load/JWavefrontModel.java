@@ -1067,7 +1067,6 @@ public class JWavefrontModel {
     protected void readMTL(String name) throws IOException {
         int nummaterials_aux, numtextures_aux;
         File file = new File(pathname.getParent() + "/" + name);
-
         if (file.exists()) {
             BufferedReader in = null;
             StringTokenizer tok = null;
