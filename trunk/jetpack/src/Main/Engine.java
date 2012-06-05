@@ -38,6 +38,8 @@ public class Engine implements GLEventListener
         gl.glEnable(GL.GL_LIGHTING);
         gl.glEnable(GL.GL_LIGHT0);
         gl.glEnable(GL.GL_DEPTH_TEST);
+        gl.glEnable(GL.GL_CULL_FACE);
+        gl.glCullFace(GL.GL_BACK);
         gl.glShadeModel(GL.GL_SMOOTH);
         gl.glMatrixMode(GL.GL_PROJECTION); // carrega a matriz de projeção
         gl.glLoadIdentity(); // le a matriz identidade
