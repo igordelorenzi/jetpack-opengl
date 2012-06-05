@@ -21,7 +21,7 @@ public class Moon extends WorldObject
     public Moon() throws IOException {
         
         this.position = new Point3f(0, 0, 0);
-        this.scale = 60f;
+        this.scale = 25f;
         String filename = "./data/moon/Terrain.obj";//moon/moon.obj";
         model = new JWavefrontModel(new File(filename));
         model.unitize();
