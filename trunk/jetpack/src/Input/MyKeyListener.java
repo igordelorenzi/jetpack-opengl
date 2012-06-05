@@ -13,8 +13,12 @@ import java.awt.event.KeyListener;
  * @author bruno
  */
 public class MyKeyListener implements KeyListener
-{
-    private static float WALK_STEP = 0.05f;
+{   
+    static public boolean KEY_W = false;
+    static public boolean KEY_A = false;
+    static public boolean KEY_S = false;
+    static public boolean KEY_D = false;
+    static public boolean KEY_SPACE = false;
     
     public void keyTyped(KeyEvent ke) 
     {
@@ -25,19 +29,48 @@ public class MyKeyListener implements KeyListener
     {
         if (ke.getKeyCode() == KeyEvent.VK_W) 
         {
-            Engine.cz += Math.sin(Engine.angle*Math.PI/180.0) * WALK_STEP;
-            Engine.cx += Math.cos(Engine.angle*Math.PI/180.0) * WALK_STEP;
+            KEY_W = true;
         }
         else if (ke.getKeyCode() == KeyEvent.VK_S) 
         {
-            Engine.cz -= Math.sin(Engine.angle*Math.PI/180.0) * WALK_STEP;
-            Engine.cx -= Math.cos(Engine.angle*Math.PI/180.0) * WALK_STEP;
+            KEY_S = true;
+        }
+        else if (ke.getKeyCode() == KeyEvent.VK_A)
+        {
+            KEY_A = true;
+        }
+        else if (ke.getKeyCode() == KeyEvent.VK_D)
+        {
+            KEY_D = true;
+        }
+        else if (ke.getKeyCode() == KeyEvent.VK_SPACE)
+        {
+            KEY_SPACE = true;
         }
     }
 
     public void keyReleased(KeyEvent ke) 
     {
-
+        if (ke.getKeyCode() == KeyEvent.VK_W) 
+        {
+            KEY_W = false;
+        }
+        else if (ke.getKeyCode() == KeyEvent.VK_S) 
+        {
+            KEY_S = false;
+        }
+        else if (ke.getKeyCode() == KeyEvent.VK_A)
+        {
+            KEY_A = false;
+        }
+        else if (ke.getKeyCode() == KeyEvent.VK_D)
+        {
+            KEY_D = false;
+        }
+        else if (ke.getKeyCode() == KeyEvent.VK_SPACE)
+        {
+            KEY_SPACE = false;
+        }
     }
 
 }
