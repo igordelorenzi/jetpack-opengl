@@ -4,8 +4,11 @@
  */
 package Main;
 
+import javax.swing.JFrame;
 import Input.MyKeyListener;
+import Input.MyMouseListener;
 import Input.MyMouseMotionListener;
+import Load.JWavefrontModel;
 import Object.Invader;
 import Object.Moon;
 import Object.Rocket;
@@ -15,6 +18,7 @@ import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import javax.media.opengl.GLCanvas;
 import javax.media.opengl.GLCapabilities;
@@ -72,7 +76,8 @@ public class GameFrame extends JFrame
         viewer = new Engine();
         canvas.addGLEventListener(viewer);
         canvas.addMouseMotionListener(new MyMouseMotionListener());
-        addKeyListener(new MyKeyListener());
+        canvas.addMouseListener(new MyMouseListener());
+        canvas.addKeyListener(new MyKeyListener());
         getContentPane().add(canvas);
         
         loadObjects();
@@ -84,7 +89,8 @@ public class GameFrame extends JFrame
         viewer.addObject(new Moon());
         viewer.addObject(new Rocket());
         for(int i=0; i<10; i++)
-            viewer.addObject(new Invader(i));
+        viewer.addObject(new Invader(i));
+        
         
     }
 }
