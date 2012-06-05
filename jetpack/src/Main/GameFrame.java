@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import Input.MyKeyListener;
 import Input.MyMouseMotionListener;
 import Load.JWavefrontModel;
+import Object.Invader;
 import Object.Moon;
 import Object.Rocket;
 import com.sun.opengl.util.Animator;
@@ -85,6 +86,8 @@ public class GameFrame extends JFrame
         //model.dump(true);
         viewer.addObject(new Moon());
         viewer.addObject(new Rocket());
+        viewer.addObject(new Invader());
+        
         
     }
 }

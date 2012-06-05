@@ -37,9 +37,12 @@ public class Engine implements GLEventListener
         glu = new GLU();
         gl.glEnable(GL.GL_LIGHTING);
         gl.glEnable(GL.GL_LIGHT0);
+        //z-buffer
         gl.glEnable(GL.GL_DEPTH_TEST);
+        
         gl.glEnable(GL.GL_CULL_FACE);
         gl.glCullFace(GL.GL_BACK);
+        //anti-aliasing
         gl.glShadeModel(GL.GL_SMOOTH);
         gl.glMatrixMode(GL.GL_PROJECTION); // carrega a matriz de projeção
         gl.glLoadIdentity(); // le a matriz identidade
@@ -71,7 +74,8 @@ public class Engine implements GLEventListener
         gl = glad.getGL();
         glu = new GLU();
         
-        gl.glClearColor(1.0f, 1.0f, 1.0f, 0.0f); //backgroung color
+        //gl.glClearColor(1.0f, 1.0f, 1.0f, 0.0f); //backgroung color
+        gl.glClearColor(0f, 0f, 0f, 0f);
         gl.glClear(GL.GL_COLOR_BUFFER_BIT | GL.GL_DEPTH_BUFFER_BIT);
         
         gl.glMatrixMode(GL.GL_MODELVIEW);

@@ -12,34 +12,34 @@ import javax.media.opengl.GLAutoDrawable;
 
 /**
  *
- * @author bruno
+ * @author arthur
  */
-public class Moon extends WorldObject
-{
-
-    public Moon() throws IOException {
-        
-        this.position = new Point3f(0, 0, 0);
-        this.scale = 25f;
-        String filename = "./data/moon/Terrain.obj";//moon/moon.obj";
+public class Invader extends WorldObject {
+    public Invader() throws IOException{
+       
+        this.position = new Point3f(3f, 0.4f, 0f);
+        this.scale = 0.5f;
+        String filename = "./data/invader/invader.obj";
         model = new JWavefrontModel(new File(filename));
         model.unitize();
         model.scale(scale);
         model.facetNormals();
         model.vertexNormals(90);
-    }
+    }   
+    
     
     public void draw(GLAutoDrawable glad)
     {
-        
+        //Engine.gl.glDisable(GL.GL_LIGHTING);
         Engine.gl.glPushMatrix();
-        
+       
         Engine.gl.glTranslatef(position.x, position.y, position.z);
-        
-      
+
         model.draw(glad);
         
         Engine.gl.glPopMatrix();
+        
+       // Engine.gl.glEnable(GL.GL_LIGHTING);
         
     }
 }
