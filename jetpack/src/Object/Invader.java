@@ -15,9 +15,9 @@ import javax.media.opengl.GLAutoDrawable;
  * @author arthur
  */
 public class Invader extends WorldObject {
-    public Invader() throws IOException{
+    public Invader(float i) throws IOException{
        
-        this.position = new Point3f(3f, 0.4f, 0f);
+        this.position = new Point3f(-i, i, i);
         this.scale = 0.5f;
         String filename = "./data/invader/invader.obj";
         model = new JWavefrontModel(new File(filename));

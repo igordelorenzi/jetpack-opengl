@@ -35,10 +35,8 @@ public class Moon extends WorldObject
         Engine.gl.glPushMatrix();
         
         Engine.gl.glTranslatef(position.x, position.y, position.z);
-        
-      
         model.draw(glad);
-        
+     
         Engine.gl.glPopMatrix();
         
     }
