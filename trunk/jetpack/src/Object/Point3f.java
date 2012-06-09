@@ -8,16 +8,17 @@ package Object;
  *
  * @author arthur
  */
-public class Point3f {
+public class Point3f
+{
+
     protected float x;
     protected float y;
     protected float z;
 
-    public Point3f(float x, float y, float z) {
+    public Point3f(float x, float y, float z)
+    {
         this.x = x;
         this.y = y;
         this.z = z;
     }
-    
-    
 }

@@ -9,9 +9,11 @@ import Input.MyKeyListener;
 import Input.MyMouseListener;
 import Input.MyMouseMotionListener;
 import Load.JWavefrontModel;
+import Object.Gravity;
 import Object.Invader;
 import Object.Moon;
 import Object.Rocket;
+import Object.SkyBox;
 import com.sun.opengl.util.Animator;
 import com.sun.opengl.util.FPSAnimator;
 import java.awt.GraphicsDevice;
@@ -30,29 +32,29 @@ import javax.swing.JFrame;
  */
 public class GameFrame extends JFrame
 {
+
     private GraphicsDevice device;
     private Engine viewer;
     private GLCanvas canvas;
-    
+
     public GameFrame()
     {
-        
     }
-    
+
     public void start()
     {
         setVisible(true);
         Animator animator = new FPSAnimator(canvas, 30);
         animator.start();
     }
-    
+
     public void load() throws IOException
     {
         device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 
         //creting the projection panel
         GLCapabilities glcaps = new GLCapabilities();
-        
+
         glcaps.setAccumBlueBits(16);
         glcaps.setAccumGreenBits(16);
         glcaps.setAccumRedBits(16);
@@ -68,29 +70,32 @@ public class GameFrame extends JFrame
         setCursor(getToolkit().createCustomCursor(
                 new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),
                 "null"));
-        if (device.isFullScreenSupported()) { // Go for full-screen mode
+        if (device.isFullScreenSupported())
+        { // Go for full-screen mode
             setIgnoreRepaint(true);     // Ignore OS re-paint request
             //device.setFullScreenWindow(frame);
         }
-        
+
         viewer = new Engine();
         canvas.addGLEventListener(viewer);
         canvas.addMouseMotionListener(new MyMouseMotionListener());
         canvas.addMouseListener(new MyMouseListener());
         canvas.addKeyListener(new MyKeyListener());
         getContentPane().add(canvas);
-        
+
         loadObjects();
     }
-    
+
     private void loadObjects() throws IOException
     {
         //model.dump(true);
+        viewer.addObject(new SkyBox());
         viewer.addObject(new Moon());
+        viewer.addObject(new Gravity());
         viewer.addObject(new Rocket());
-        for(int i=0; i<10; i++)
-        viewer.addObject(new Invader(i));
-        
-        
+        //for(int i=0; i<10; i++)
+        //viewer.addObject(new Invader(i));
+
+
     }
 }

@@ -13,26 +13,27 @@ import java.awt.event.MouseListener;
  */
 public class MyMouseListener implements MouseListener
 {
+
     static public boolean CLICK = false;
-    
-    public void mouseClicked(MouseEvent me) {
-        
+
+    public void mouseClicked(MouseEvent me)
+    {
     }
 
-    public void mousePressed(MouseEvent me) {
+    public void mousePressed(MouseEvent me)
+    {
         CLICK = true;
     }
 
-    public void mouseReleased(MouseEvent me) {
-        
+    public void mouseReleased(MouseEvent me)
+    {
     }
 
-    public void mouseEntered(MouseEvent me) {
-        
+    public void mouseEntered(MouseEvent me)
+    {
     }
 
-    public void mouseExited(MouseEvent me) {
-        
+    public void mouseExited(MouseEvent me)
+    {
     }
-    
 }
