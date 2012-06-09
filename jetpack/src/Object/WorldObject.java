@@ -15,21 +15,24 @@ import javax.media.opengl.GLAutoDrawable;
  */
 public abstract class WorldObject
 {
-    protected JWavefrontModel model;
+
+    protected JWavefrontModel model = null;
     protected Point3f position;
     protected float scale;
-    
+
     public JWavefrontModel getModel()
     {
         return model;
     }
-            
+
     public abstract void draw(GLAutoDrawable glad);
     
-    
-    
-    public void update()
+    public void load() throws Exception
     {
         
+    }
+
+    public void update()
+    {
     }
 }
