@@ -23,7 +23,7 @@ import javax.media.opengl.GLException;
 public class Lens extends WorldObject
 {
     float posx = 0, posy = Engine.Z_FAR_BOX/2, posz = Engine.Z_FAR_BOX;
-    private Texture lens[] = new Texture[5];
+    private Texture lens[] = new Texture[6];
             
     public Lens()
     {
@@ -39,6 +39,9 @@ public class Lens extends WorldObject
             lens[i].setTexParameterf(GL.GL_TEXTURE_MIN_FILTER, GL.GL_LINEAR);
             lens[i].setTexParameterf(GL.GL_TEXTURE_MAG_FILTER, GL.GL_LINEAR);
         }
+        lens[5] = TextureIO.newTexture(new File("./data/lens/sunglow.png"), true);
+        lens[5].setTexParameterf(GL.GL_TEXTURE_MIN_FILTER, GL.GL_LINEAR);
+        lens[5].setTexParameterf(GL.GL_TEXTURE_MAG_FILTER, GL.GL_LINEAR);
     }
     
     private void drawFlare(float zplane, float r, float g, float b, float alpha, int txt, float s)
@@ -85,13 +88,10 @@ public class Lens extends WorldObject
         else if (Engine.angle > 110) alpha *= (125-Engine.angle)/15f;
         if (Engine.yangle < -20) alpha *= (Engine.yangle-(-35))/15f;
         else if (Engine.yangle > -5) alpha *= (10-Engine.yangle)/15f;
-        System.out.println(alpha + " " + Engine.angle + " " + Engine.yangle);
-        //alpha = 0.5f;
-        Engine.gl.glColor4f(1, 1, 1, alpha);
         
         // ajustando vetor de flare
         Engine.gl.glTranslatef(Engine.cx+0, 40+Engine.cy, Engine.cz+100);
-        // 24 eh o sin(40/100)
+        // 28 eh +- o sin(40/100)
         Engine.gl.glRotatef((-Engine.yangle)/2-28, 1, 0, 0);
         Engine.gl.glRotatef((Engine.angle-90)/4, 0, 1, 0);
         
@@ -107,9 +107,10 @@ public class Lens extends WorldObject
         drawFlare(zplane, 0, 0.5f, 1f, alpha, 1, 2f);
         zplane = -55f;
         drawFlare(zplane, 0, 0.5f, 1f, alpha, 1, 2f);
+        zplane = 0;
+        drawFlare(zplane, 1f, 1f, 1f, alpha, 5, 20f);
         
         // restaurando contexto
-        Engine.gl.glDisable(GL.GL_BLEND);
         Engine.gl.glPopMatrix();
         Engine.gl.glPopAttrib();
         
