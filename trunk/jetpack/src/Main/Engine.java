@@ -25,7 +25,7 @@ public class Engine implements GLEventListener
     public static GLU glu;
     public static GLUT glut;
     private LinkedList<WorldObject> objectsList = new LinkedList<WorldObject>();
-    public static float lx = 0, ly = 0, lz = 1, cx = 0, cy = 15, cz = 0, angle = 90, yangle = 0;
+    public static float lx = 0, ly = 15, lz = 1, cx = 0, cy = 15, cz = 0, angle = 90, yangle = 0;
 
     public Engine()
     {
@@ -52,8 +52,8 @@ public class Engine implements GLEventListener
         
         // z-buffer
         gl.glEnable(GL.GL_DEPTH_TEST);
-        gl.glEnable(GL.GL_CULL_FACE);
-        gl.glCullFace(GL.GL_BACK);
+        //gl.glEnable(GL.GL_CULL_FACE);
+        //gl.glCullFace(GL.GL_BACK);
         
         //anti-aliasing
         //gl.glShadeModel(GL.GL_SMOOTH);
@@ -97,10 +97,10 @@ public class Engine implements GLEventListener
         if (MyMouseListener.CLICK)
         {
             MyMouseListener.CLICK = false;
-            float fx = 8;
+            /*float fx = 8;
             float fy = 0;
             float fz = 0;
-            addObject(new Shot(cx, cy, cz, fx, fy, fz));
+            addObject(new Shot(cx, cy, cz, fx, fy, fz));*/
         }
         // atualiza outros objetos
         Iterator<WorldObject> it = objectsList.iterator();
