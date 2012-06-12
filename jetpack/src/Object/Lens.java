@@ -80,6 +80,7 @@ public class Lens extends WorldObject
         Engine.gl.glPushMatrix();
         Engine.gl.glDisable(GL.GL_LIGHTING);
         Engine.gl.glDisable(GL.GL_DEPTH_TEST);
+        Engine.gl.glDisable(GL.GL_CULL_FACE);
         Engine.gl.glEnable(GL.GL_BLEND);
         Engine.gl.glEnable(GL.GL_TEXTURE_2D);
         Engine.gl.glBlendFunc(GL.GL_ONE, GL.GL_ONE);
