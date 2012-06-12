@@ -20,7 +20,7 @@ import javax.media.opengl.GLAutoDrawable;
 public class SkyBox extends WorldObject
 {
 
-    private Texture texture, sun;
+    private Texture texture, sun, stars;
 
     public SkyBox()
     {
@@ -41,6 +41,9 @@ public class SkyBox extends WorldObject
         sun = TextureIO.newTexture(new File("./data/skybox/sun.png"), true);
         sun.setTexParameterf(GL.GL_TEXTURE_MIN_FILTER, GL.GL_LINEAR);
         sun.setTexParameterf(GL.GL_TEXTURE_MAG_FILTER, GL.GL_LINEAR);
+        stars = TextureIO.newTexture(new File("./data/skybox/stars.png"), true);
+        stars.setTexParameterf(GL.GL_TEXTURE_MIN_FILTER, GL.GL_LINEAR);
+        stars.setTexParameterf(GL.GL_TEXTURE_MAG_FILTER, GL.GL_LINEAR);
     }
 
     @Override
@@ -84,6 +87,48 @@ public class SkyBox extends WorldObject
         Engine.gl.glVertex3f(Engine.Z_FAR_BOX, 0, Engine.Z_FAR_BOX);
         Engine.gl.glTexCoord2f(1, 1);
         Engine.gl.glVertex3f(Engine.Z_FAR_BOX, Engine.Z_FAR_BOX, Engine.Z_FAR_BOX);
+        Engine.gl.glEnd();
+        
+        // atras
+        stars.enable();
+        stars.bind();
+        Engine.gl.glBegin(GL.GL_QUADS);
+        Engine.gl.glTexCoord2f(0, 1);
+        Engine.gl.glVertex3f(-Engine.Z_FAR_BOX, Engine.Z_FAR_BOX, -Engine.Z_FAR_BOX);
+        Engine.gl.glTexCoord2f(0, 0);
+        Engine.gl.glVertex3f(-Engine.Z_FAR_BOX, 0, -Engine.Z_FAR_BOX);
+        Engine.gl.glTexCoord2f(1, 0);
+        Engine.gl.glVertex3f(Engine.Z_FAR_BOX, 0, -Engine.Z_FAR_BOX);
+        Engine.gl.glTexCoord2f(1, 1);
+        Engine.gl.glVertex3f(Engine.Z_FAR_BOX, Engine.Z_FAR_BOX, -Engine.Z_FAR_BOX);
+        Engine.gl.glEnd();
+        
+        // esquerda
+        stars.enable();
+        stars.bind();
+        Engine.gl.glBegin(GL.GL_QUADS);
+        Engine.gl.glTexCoord2f(0, 1);
+        Engine.gl.glVertex3f(Engine.Z_FAR_BOX, Engine.Z_FAR_BOX, -Engine.Z_FAR_BOX);
+        Engine.gl.glTexCoord2f(0, 0);
+        Engine.gl.glVertex3f(Engine.Z_FAR_BOX, 0, -Engine.Z_FAR_BOX);
+        Engine.gl.glTexCoord2f(1, 0);
+        Engine.gl.glVertex3f(Engine.Z_FAR_BOX, 0, Engine.Z_FAR_BOX);
+        Engine.gl.glTexCoord2f(1, 1);
+        Engine.gl.glVertex3f(Engine.Z_FAR_BOX, Engine.Z_FAR_BOX, Engine.Z_FAR_BOX);
+        Engine.gl.glEnd();
+        
+        // dereita
+        stars.enable();
+        stars.bind();
+        Engine.gl.glBegin(GL.GL_QUADS);
+        Engine.gl.glTexCoord2f(0, 1);
+        Engine.gl.glVertex3f(-Engine.Z_FAR_BOX, Engine.Z_FAR_BOX, -Engine.Z_FAR_BOX);
+        Engine.gl.glTexCoord2f(0, 0);
+        Engine.gl.glVertex3f(-Engine.Z_FAR_BOX, 0, -Engine.Z_FAR_BOX);
+        Engine.gl.glTexCoord2f(1, 0);
+        Engine.gl.glVertex3f(-Engine.Z_FAR_BOX, 0, Engine.Z_FAR_BOX);
+        Engine.gl.glTexCoord2f(1, 1);
+        Engine.gl.glVertex3f(-Engine.Z_FAR_BOX, Engine.Z_FAR_BOX, Engine.Z_FAR_BOX);
         Engine.gl.glEnd();
 
         // restora as matrizes e attr

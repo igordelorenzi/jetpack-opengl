@@ -9,6 +9,7 @@ import Input.MyKeyListener;
 import Input.MyMouseListener;
 import Input.MyMouseMotionListener;
 import Load.JWavefrontModel;
+import Object.Flag;
 import Object.Gravity;
 import Object.Invader;
 import Object.Lens;
@@ -94,6 +95,7 @@ public class GameFrame extends JFrame
         viewer.addObject(new Moon());
         viewer.addObject(new Gravity());
         viewer.addObject(new Rocket());
+        viewer.addObject(new Flag());
         viewer.addObject(new Lens());
         //for(int i=0; i<10; i++)
         //viewer.addObject(new Invader(i));

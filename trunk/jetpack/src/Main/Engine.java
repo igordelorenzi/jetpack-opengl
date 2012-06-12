@@ -52,8 +52,8 @@ public class Engine implements GLEventListener
         
         // z-buffer
         gl.glEnable(GL.GL_DEPTH_TEST);
-        //gl.glEnable(GL.GL_CULL_FACE);
-        //gl.glCullFace(GL.GL_BACK);
+        gl.glEnable(GL.GL_CULL_FACE);
+        gl.glCullFace(GL.GL_BACK);
         
         //anti-aliasing
         //gl.glShadeModel(GL.GL_SMOOTH);
