@@ -22,8 +22,8 @@ public class Invader extends WorldObject
     
     public Invader()
     {
-        this.position = new Point3f(40, 5, (float)Math.random()*20);
-        this.scale = 1f;
+        this.position = new Point3f(40, 10, (float)Math.random()*20);
+        this.scale = 5f;
         angle = (float) Math.random();
     }
     
@@ -43,8 +43,8 @@ public class Invader extends WorldObject
     {
         angle += 10f;
         curra += 0.1f;
-        position.x = (float) (30 + Math.cos(curra)*10);
-        position.z = (float) (0 + Math.sin(curra)*10);
+        position.x = (float) (30 + Math.cos(curra)*30);
+        position.z = (float) (0 + Math.sin(curra)*30);
         return true;
     }
 

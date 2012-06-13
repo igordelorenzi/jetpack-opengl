@@ -7,10 +7,8 @@ package Object;
 import Load.JWavefrontModel;
 import Main.Engine;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
 import javax.media.opengl.GL;
 import javax.media.opengl.GLAutoDrawable;
 
@@ -25,13 +23,13 @@ public class Rocket extends WorldObject
     
     public Rocket()
     {
-        this.position = new Point3f(30f, 9f, 0f);
-        this.scale = 10f;
-        for (int x = -3; x <= 3; x++)
+        this.position = new Point3f(30f, 30f, 0f);
+        this.scale = 30f;
+        for (int x = -10; x <= 10; x++)
         {
-            for (int z = -3; z <= 3; z++)
+            for (int z = -10; z <= 10; z++)
             {
-                smoke.add(new Point3f(x-30, -17, z-1));
+                smoke.add(new Point3f(x-30, -58, z-2));
                 diams.add(Float.valueOf((float) Math.random()*2));
             }
         }
@@ -54,8 +52,8 @@ public class Rocket extends WorldObject
         for (int i = 0; i < diams.size(); ++i)
         {
             Float size = diams.get(i);
-            size += 0.08f;
-            if (size >= 2f) size = 0f;
+            size += 0.1f;
+            if (size >= 5f) size = 0.2f;
             diams.set(i, size);
         }
         return true;
