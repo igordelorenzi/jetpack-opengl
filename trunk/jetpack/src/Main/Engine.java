@@ -6,6 +6,7 @@ import Load.JWavefrontModel;
 import Object.Shot;
 import Object.WorldObject;
 import com.sun.opengl.util.GLUT;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.logging.Level;
@@ -93,20 +94,15 @@ public class Engine implements GLEventListener
 
     private void updateGame()
     {
-        // cria o tiro
-        if (MyMouseListener.CLICK)
-        {
-            MyMouseListener.CLICK = false;
-            /*float fx = 8;
-            float fy = 0;
-            float fz = 0;
-            addObject(new Shot(cx, cy, cz, fx, fy, fz));*/
-        }
-        // atualiza outros objetos
+        // atualiza objetos
         Iterator<WorldObject> it = objectsList.iterator();
         while (it.hasNext())
         {
-            it.next().update();
+            WorldObject obj = it.next();
+            if (!obj.update()) 
+            {
+                it.remove();
+            }
         }
     }
 

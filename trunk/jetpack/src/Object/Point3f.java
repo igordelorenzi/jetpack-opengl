@@ -14,6 +14,8 @@ public class Point3f
     protected float x;
     protected float y;
     protected float z;
+    
+    public Point3f(){}
 
     public Point3f(float x, float y, float z)
     {

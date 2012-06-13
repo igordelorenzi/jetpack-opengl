@@ -25,12 +25,6 @@ public class SkyBox extends WorldObject
     public SkyBox()
     {
     }
-    
-    @Override
-    public void update()
-    {
-
-    }
 
     @Override
     public void load() throws Exception
