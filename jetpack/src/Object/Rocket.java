@@ -49,7 +49,7 @@ public class Rocket extends WorldObject
     }
     
     @Override
-    public void update()
+    public boolean update()
     {
         for (int i = 0; i < diams.size(); ++i)
         {
@@ -58,6 +58,7 @@ public class Rocket extends WorldObject
             if (size >= 2f) size = 0f;
             diams.set(i, size);
         }
+        return true;
     }
 
     public void draw(GLAutoDrawable glad)

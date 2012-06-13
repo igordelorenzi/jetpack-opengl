@@ -15,6 +15,7 @@ import Object.Invader;
 import Object.Lens;
 import Object.Moon;
 import Object.Rocket;
+import Object.Shot;
 import Object.SkyBox;
 import com.sun.opengl.util.Animator;
 import com.sun.opengl.util.FPSAnimator;
@@ -96,9 +97,9 @@ public class GameFrame extends JFrame
         viewer.addObject(new Gravity());
         viewer.addObject(new Rocket());
         viewer.addObject(new Flag());
+        viewer.addObject(new Invader());
+        viewer.addObject(new Shot());
         viewer.addObject(new Lens());
-        //for(int i=0; i<10; i++)
-        //viewer.addObject(new Invader(i));
 
 
     }

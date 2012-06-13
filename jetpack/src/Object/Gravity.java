@@ -25,7 +25,7 @@ public class Gravity extends WorldObject
     }
 
     @Override
-    public void update()
+    public boolean update()
     {
         // atualiza as forcas
         if (MyKeyListener.KEY_W)
@@ -74,5 +74,6 @@ public class Gravity extends WorldObject
             if (forcey < 0.01)
                 forcey = 0;
         }
+        return true;
     }
 }

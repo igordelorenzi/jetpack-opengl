@@ -32,7 +32,7 @@ public class Flag extends WorldObject
     }
 
     @Override
-    public void update()
+    public boolean update()
     {
         for (int y = 0; y < 45; y++) 
         {
@@ -43,6 +43,7 @@ public class Flag extends WorldObject
             }
             points[44][y][2] = hold;
         }
+        return true;
     }
 
     @Override

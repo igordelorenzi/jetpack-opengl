@@ -32,7 +32,8 @@ public abstract class WorldObject
         
     }
 
-    public void update()
+    public boolean update()
     {
+        return true;
     }
 }
