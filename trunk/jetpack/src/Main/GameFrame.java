@@ -12,6 +12,7 @@ import Load.JWavefrontModel;
 import Object.Bullet;
 import Object.Flag;
 import Object.Gravity;
+import Object.Gun;
 import Object.Invader;
 import Object.Lens;
 import Object.Moon;
@@ -101,6 +102,7 @@ public class GameFrame extends JFrame
         viewer.addObject(new Flag());
         viewer.addObject(new Invader());
         viewer.addObject(new Shot());
+        viewer.addObject(new Gun());
         viewer.addObject(new Lens());
 
 
