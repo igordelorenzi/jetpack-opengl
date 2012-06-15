@@ -26,7 +26,7 @@ public class Engine implements GLEventListener
     public static GLU glu;
     public static GLUT glut;
     private LinkedList<WorldObject> objectsList = new LinkedList<WorldObject>();
-    public static float lx = 0, ly = 15, lz = 1, cx = 0, cy = 15, cz = 0, angle = 90, yangle = 0;
+    public static float lx = 0, ly = 0, lz = -1, cx = 0, cy = 15, cz = 0, angle = 270, yangle = 0;
 
     public Engine()
     {

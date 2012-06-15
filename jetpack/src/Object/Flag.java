@@ -25,6 +25,7 @@ public class Flag extends WorldObject
 
     private Texture texture;
     private float points[][][] = new float[45][45][3];
+    private float time = 0;
 
     public Flag()
     {
@@ -34,14 +35,18 @@ public class Flag extends WorldObject
     @Override
     public boolean update()
     {
-        for (int y = 0; y < 45; y++) 
+        time += 0.1f;
+        for (int x = 0; x < 45; x++)
         {
-            float hold = points[0][y][2]; 
-            for (int x = 0; x < 44; x++)
+            float mult = Math.min(0.5f, (float) Math.pow(1f/Math.sqrt(45-x), 1.3));
+            for (int y = 0; y < 45; y++)
             {
-                points[x][y][2] = points[x + 1][y][2];
+                float rx = ((x / 5.0f) - 4.5f);
+                float ry = ((y / 5.0f) - 4.5f);
+                points[x][y][0] = rx;
+                points[x][y][1] = ry;
+                points[x][y][2] = (float) Math.sin(time+rx+ry/2)*mult;
             }
-            points[44][y][2] = hold;
         }
         return true;
     }
@@ -52,24 +57,23 @@ public class Flag extends WorldObject
         texture = TextureIO.newTexture(new File("./data/flag/Flag.png"), true);
         texture.setTexParameterf(GL.GL_TEXTURE_MIN_FILTER, GL.GL_LINEAR);
         texture.setTexParameterf(GL.GL_TEXTURE_MAG_FILTER, GL.GL_LINEAR);
-
-        for (int x = 0; x < 45; x++)
-        {
-            for (int y = 0; y < 45; y++)
-            {
-                points[x][y][0] = ((x / 5.0f) - 4.5f);
-                points[x][y][1] = ((y / 5.0f) - 4.5f);
-                points[x][y][2] = (float) (Math.sin((((x / 5.0f) * 40.0f) / 360.0f) * 3.141592654 * 2.0f));
-            }
-        }
+        
+        update();
+        
+        String filename = "./data/flag/mastro.obj";
+        model = new JWavefrontModel(new File(filename));
+        model.unitize();
+        model.scale(5);
+        model.facetNormals();
+        model.vertexNormals(90);
     }
 
     public void draw(GLAutoDrawable glad)
     {
         Engine.gl.glPushMatrix();
+        Engine.gl.glTranslatef(-30, 12.7f, 0);
         Engine.gl.glDisable(GL.GL_CULL_FACE);
         Engine.gl.glEnable(GL.GL_TEXTURE_2D);
-        Engine.gl.glTranslatef(-30, 5, 0);
         Engine.gl.glRotatef(45, 0, 1, 0);
         Engine.gl.glScalef(0.5f, 0.5f, 0.5f);
 
@@ -103,6 +107,13 @@ public class Flag extends WorldObject
 
         Engine.gl.glDisable(GL.GL_TEXTURE_2D);
         Engine.gl.glEnable(GL.GL_CULL_FACE);
+        
+        Engine.gl.glPopMatrix();
+        
+        Engine.gl.glPushMatrix();
+        Engine.gl.glScalef(1, 3, 1);
+        Engine.gl.glTranslatef(-31.6f, 0, 1.6f);
+        model.draw(glad);
         Engine.gl.glPopMatrix();
     }
 }

@@ -15,22 +15,19 @@ import javax.media.opengl.GLAutoDrawable;
  *
  * @author arthur
  */
-public class Invader extends WorldObject
+public class Bullet extends WorldObject
 {
-    float angle, curra = 0;
-    Point3f orig;
    
-    public Invader()
+    public Bullet()
     {
-        this.position = new Point3f(40, 5, (float)Math.random()*20);
-        this.scale = 1f;
-        angle = (float) Math.random();
+        this.position = new Point3f(-40, 40, -100);
+        this.scale = 100f;
     }
    
     @Override
     public void load() throws Exception
     {
-        String filename = "./data/invader/invader.obj";
+        String filename = "./data/bullet/bala.obj";
         model = new JWavefrontModel(new File(filename));
         model.unitize();
         model.scale(scale);
@@ -41,23 +38,14 @@ public class Invader extends WorldObject
     @Override
     public boolean update()
     {
-        angle += 10f;
-        curra += 0.1f;
-        position.x = (float) (30 + Math.cos(curra)*10);
-        position.z = (float) (0 + Math.sin(curra)*10);
         return true;
     }
 
     public void draw(GLAutoDrawable glad)
     {
         Engine.gl.glPushMatrix();
-        Engine.gl.glDisable(GL.GL_CULL_FACE);
-
         Engine.gl.glTranslatef(position.x, position.y, position.z);
-        Engine.gl.glRotatef(angle, 0, 1, 0);
         model.draw(glad);
-
-        Engine.gl.glEnable(GL.GL_CULL_FACE);
         Engine.gl.glPopMatrix();
     }
 }
