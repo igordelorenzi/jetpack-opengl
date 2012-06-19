@@ -49,9 +49,9 @@ public class Gun extends WorldObject
         if (yangle < -45) yangle = -45;
         if (yangle > 0) yangle+=yangle/2f;
         Engine.gl.glRotatef(yangle, 1, 0, 0);
-        Engine.gl.glTranslatef(0, -0.5f, 1);
-        Engine.gl.glRotatef(-90, 0, 1, 0);
-        Engine.gl.glRotatef(90, 1, 0, 0);
+        Engine.gl.glTranslatef(-0.3f, -0.4f, 1);
+        Engine.gl.glRotatef(-80, 0, 1, 0);
+        Engine.gl.glRotatef(100, 1, 0, 0);
         model.draw(glad);
         Engine.gl.glPopMatrix();
     }
